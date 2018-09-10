@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg_black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/view_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/global_margin_small">
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/view_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_icon" />
+
+        <include layout="@layout/view_divider_vertical_white" />
+
+        <Spinner
+            android:id="@+id/spLevel"
+            android:layout_width="@dimen/header_level_width"
+            android:layout_height="wrap_content"
+            android:background="@null" />
+
+        <include layout="@layout/view_divider_vertical_white" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/view_keyword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/global_margin_normal"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:imeOptions="actionSearch"
+            android:textColor="@color/header_keyword"
+            android:textSize="@dimen/header_search_size"
+            tools:text="com.ttdevs" />
+
+        <include layout="@layout/view_divider_vertical_white" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/view_clean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_restore" />
+
+        <include layout="@layout/view_divider_vertical_white" />
+
+        <CheckBox
+            android:id="@+id/cb_scroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/menu_scroll_selector"
+            android:checked="true" />
+
+        <include layout="@layout/view_divider_vertical_white" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/view_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_close" />
+    </LinearLayout>
+
+    <include layout="@layout/view_divider_gray" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/global_margin_normal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_log"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </HorizontalScrollView>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/view_change_height"
+            android:layout_width="42dp"
+            android:layout_height="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/global_margin_large"
+            android:scaleType="fitXY"
+            android:src="@color/view_change_height"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_top_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/activity_bg_black"
+            android:gravity="right"
+            android:padding="@dimen/global_margin_small"
+            android:textColor="@color/log_content"
+            android:textSize="@dimen/log_activity_size"
+            tools:text="com.ttdevs.demo/.SecondActivity" />
+    </RelativeLayout>
+</merge>

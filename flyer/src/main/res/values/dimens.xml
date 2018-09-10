@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="global_divider_size">1px</dimen>
+
+    <dimen name="global_margin_tiny">1dp</dimen>
+    <dimen name="global_margin_small">2dp</dimen>
+    <dimen name="global_margin_normal">4dp</dimen>
+    <dimen name="global_margin_large">8dp</dimen>
+
+    <dimen name="window_height">240dp</dimen>
+    <dimen name="window_min_height">96dp</dimen>
+    <dimen name="window_margin_top">200dp</dimen>
+
+    <dimen name="header_level_width">64dp</dimen>
+    <dimen name="header_level_item_size">16sp</dimen>
+    <dimen name="header_search_size">16sp</dimen>
+    <dimen name="log_content_size">12sp</dimen>
+    <dimen name="log_activity_size">8sp</dimen>
+</resources>

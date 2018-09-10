@@ -1,0 +1,12 @@
+// Project config
+
+buildscript {
+    ext.versions = [
+            "minSdk"        : 19,
+            "targetSdk"     : 27,
+            "compileSdk"    : 27,
+            "supportLibrary": "27.1.1",
+            "versionCode"   : 1,
+            "versionName"   : "0.1.0"
+    ]
+}

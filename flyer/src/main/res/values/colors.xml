@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="global_divider_gray">#9FFFFFFF</color>
+    <color name="global_bg_black">#9F000000</color>
+    <color name="activity_bg_black">#5F000000</color>
+    <color name="view_change_height">#8F0070BB</color>
+    <color name="header_keyword">#FFFFFFFF</color>
+    <color name="header_level_text">#FFFFFFFF</color>
+    <color name="header_level_bg">@android:color/transparent</color>
+    <color name="header_level_item_text">#BF000000</color>
+    <color name="header_level_item_bg">#FFFFFFFF</color>
+    <color name="log_content">#FFFFFFFF</color>
+
+    <color name="log_level_verbose">#FFFFFFFF</color>
+    <color name="log_level_debug">#FF0070BB</color>
+    <color name="log_level_info">#FF48BB31</color>
+    <color name="log_level_warn">#FFBBBB23</color>
+    <color name="log_level_error">#FFFF0006</color>
+    <color name="log_level_assert">#FF8F0005</color>
+</resources>
