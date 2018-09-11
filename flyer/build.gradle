@@ -20,7 +20,6 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
-
 }
 
 dependencies {
@@ -38,7 +37,7 @@ publish {
     userOrg = "wwuu2008"
     groupId = "com.ttdevs"
     artifactId = "flyer"
-    publishVersion = "0.1.0"
+    publishVersion = versions.versionName
     desc = "A tool for displaying logcat information on the screen."
     website = "https://github.com/ttdevs/flyer"
 }
