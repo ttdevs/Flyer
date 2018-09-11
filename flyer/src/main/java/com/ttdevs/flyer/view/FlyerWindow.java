@@ -41,7 +41,7 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
  * @author ttdevs
  * 2018-08-28 17:01
  */
-public class FlyerWindow extends LinearLayout {
+ class FlyerWindow extends LinearLayout {
     private static WindowManager.LayoutParams mLayoutParams = new WindowManager.LayoutParams();
 
     static {
