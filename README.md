@@ -13,6 +13,10 @@
     
     > 当 support 版本不兼容时: `implementation "com.ttdevs:flyer:0.1.0@aar"`
 
+- 混淆：
+
+    `-keep class android.app.ActivityThread{ public *;}`
+    
 - 使用：
 
     - 打开：`Flyer.show();`
@@ -42,6 +46,7 @@
 - TODO
     - 保存日志
     - 拷贝日志
+    - 混淆
     - ...
 
 - Bug
