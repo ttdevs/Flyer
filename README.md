@@ -7,11 +7,11 @@
 
 ## 使用
 
-- 引用：
+- 引用：[![GitHub release](https://img.shields.io/github/release/ttdevs/FLyer.svg?style=flat-square)](https://github.com/ttdevs/Flyer/releases)
 
-    `implementation "com.ttdevs:flyer:0.1.1"`
+    `implementation "com.ttdevs:flyer:+"` 
     
-    > 当 support 版本不兼容时: `implementation "com.ttdevs:flyer:0.1.0@aar"`
+    > 当 support 版本不兼容时: `implementation "com.ttdevs:flyer:+@aar"`
 
 - 混淆：
 
