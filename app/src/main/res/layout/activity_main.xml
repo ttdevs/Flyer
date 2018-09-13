@@ -50,4 +50,10 @@
             android:text="Log Slow" />
     </LinearLayout>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:focusable="true"
+        android:hint="Please input" />
 </LinearLayout>

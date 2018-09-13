@@ -15,12 +15,15 @@ import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.ttdevs.flyer.R;
@@ -34,6 +37,8 @@ import com.ttdevs.flyer.utils.OnTouchYListener;
 
 import java.util.ArrayList;
 
+import static android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+import static android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
 import static com.ttdevs.flyer.utils.Constant.MAX_LOG_SIZE;
 import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
 
@@ -41,7 +46,7 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
  * @author ttdevs
  * 2018-08-28 17:01
  */
- public class FlyerWindow extends LinearLayout {
+public class FlyerWindow extends LinearLayout {
     private static WindowManager.LayoutParams mLayoutParams = new WindowManager.LayoutParams();
 
     static {
@@ -50,7 +55,8 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
         } else {
             mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
-        mLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        mLayoutParams.flags = FLAG_NOT_FOCUSABLE;
+        mLayoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST;
         mLayoutParams.format = PixelFormat.TRANSLUCENT;
         mLayoutParams.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         mLayoutParams.width = FrameLayout.LayoutParams.MATCH_PARENT;
@@ -59,9 +65,11 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
 
     private Context mContext;
     private WindowManager mWindowManager;
+    private InputMethodManager mInputManger;
 
     private View viewIcon;
     private AppCompatEditText viewKeyword;
+    private Switch switchInput;
     private Spinner spLevel;
     private View viewClean;
     private CheckBox cbScroll;
@@ -82,6 +90,8 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
         mContext = context;
 
         mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        mInputManger = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+
         mLayoutParams.y = y;
 
         initView();
@@ -102,6 +112,7 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
         viewIcon = findViewById(R.id.view_icon);
         spLevel = findViewById(R.id.spLevel);
         viewKeyword = findViewById(R.id.view_keyword);
+        switchInput = findViewById(R.id.switch_input);
         viewClean = findViewById(R.id.view_clean);
         cbScroll = findViewById(R.id.cb_scroll);
         viewClose = findViewById(R.id.view_close);
@@ -175,6 +186,21 @@ import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
     }
 
     private void initKeyword() {
+        switchInput.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mLayoutParams.flags = FLAG_NOT_TOUCH_MODAL;
+                } else {
+                    mLayoutParams.flags = FLAG_NOT_FOCUSABLE;
+                }
+                mWindowManager.updateViewLayout(FlyerWindow.this, mLayoutParams);
+
+                if (!isChecked) {
+                    mInputManger.hideSoftInputFromWindow(viewKeyword.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                }
+            }
+        });
         viewKeyword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
