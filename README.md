@@ -9,7 +9,7 @@
 
 - 引用：
 
-    `implementation "com.ttdevs:flyer:0.1.0"`
+    `implementation "com.ttdevs:flyer:0.1.1"`
     
     > 当 support 版本不兼容时: `implementation "com.ttdevs:flyer:0.1.0@aar"`
 
@@ -50,7 +50,6 @@
     - ...
 
 - Bug
-    - Flyer显示后会屏蔽其他输入框
     - 魅族Note5 7.1.1 不能显示
     - Samsung SCH-I545 4.4 显示后Home键和返回键不能用
 

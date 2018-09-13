@@ -44,6 +44,8 @@
                 android:layout_marginLeft="@dimen/global_margin_normal"
                 android:layout_toLeftOf="@+id/switch_input"
                 android:focusableInTouchMode="true"
+                android:focusedByDefault="false"
+                android:cursorVisible="false"
                 android:imeOptions="actionSearch"
                 android:maxLines="2"
                 android:textColor="@color/header_keyword"

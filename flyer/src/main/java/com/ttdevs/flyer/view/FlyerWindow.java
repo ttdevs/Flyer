@@ -56,7 +56,7 @@ public class FlyerWindow extends LinearLayout {
             mLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         }
         mLayoutParams.flags = FLAG_NOT_FOCUSABLE;
-        mLayoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST;
+        mLayoutParams.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
         mLayoutParams.format = PixelFormat.TRANSLUCENT;
         mLayoutParams.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         mLayoutParams.width = FrameLayout.LayoutParams.MATCH_PARENT;
@@ -191,14 +191,16 @@ public class FlyerWindow extends LinearLayout {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     mLayoutParams.flags = FLAG_NOT_TOUCH_MODAL;
+                    viewKeyword.requestFocus();
+                    viewKeyword.setCursorVisible(true);
                 } else {
                     mLayoutParams.flags = FLAG_NOT_FOCUSABLE;
-                }
-                mWindowManager.updateViewLayout(FlyerWindow.this, mLayoutParams);
 
-                if (!isChecked) {
+                    viewKeyword.clearFocus();
+                    viewKeyword.setCursorVisible(false);
                     mInputManger.hideSoftInputFromWindow(viewKeyword.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }
+                mWindowManager.updateViewLayout(FlyerWindow.this, mLayoutParams);
             }
         });
         viewKeyword.addTextChangedListener(new TextWatcher() {
