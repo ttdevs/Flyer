@@ -17,20 +17,19 @@
 `$ ./gradlew clean build bintrayUpload -PbintrayUser=wwuu2008 -PbintrayKey=BINTRAY_KEY -PdryRun=false`
 > https://github.com/novoda/bintray-release
 
-
 - 输入的设置
-    
+
     - `FLAG_NOT_FOCUSABLE`: 不能输入
-    
+
     - `FLAG_NOT_TOUCH_MODAL`: 可以输入
-    
-    > EditText添加属性: `android:focusableInTouchMode="true"`
-    
+
+  > EditText添加属性: `android:focusableInTouchMode="true"`
+
 
 - 获取Context
 
     - 方法一
-        
+
 ```java
 public class Application {
     private static Context CONTEXT;

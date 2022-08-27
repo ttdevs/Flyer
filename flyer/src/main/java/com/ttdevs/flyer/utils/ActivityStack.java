@@ -3,11 +3,12 @@ package com.ttdevs.flyer.utils;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ActivityStack {
     private static String mActivity;
 
     public static String getTopActivity() {
-        if(TextUtils.isEmpty(mActivity)){
+        if (TextUtils.isEmpty(mActivity)) {
             return SystemUtils.getTopActivity();
         }
         return mActivity;

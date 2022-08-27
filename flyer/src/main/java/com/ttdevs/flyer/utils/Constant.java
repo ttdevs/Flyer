@@ -1,9 +1,10 @@
 package com.ttdevs.flyer.utils;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.text.style.ForegroundColorSpan;
 import android.util.SparseArray;
+
+import androidx.core.content.ContextCompat;
 
 import com.ttdevs.flyer.R;
 
@@ -50,7 +51,7 @@ public class Constant {
     /**
      * 到达最大日志条数后，每次删除条数
      */
-    public static final int DELETE_LOG_SIZE = 4000;
+    public static final int DELETE_LOG_SIZE = 5000;
     /**
      * 点击Android Studio上的删除按钮，当前的InputSteam无效了，会返回这个字符
      */

@@ -1,10 +1,12 @@
 package com.ttdevs.flyer.adapter;
 
+import static android.content.Context.CLIPBOARD_SERVICE;
+import static com.ttdevs.flyer.utils.Constant.INDEX_LOG_CONTENT;
+import static com.ttdevs.flyer.utils.Constant.INDEX_LOG_LEVEL;
+
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -17,14 +19,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.ttdevs.flyer.R;
 import com.ttdevs.flyer.utils.Constant;
 
 import java.util.List;
-
-import static android.content.Context.CLIPBOARD_SERVICE;
-import static com.ttdevs.flyer.utils.Constant.INDEX_LOG_CONTENT;
-import static com.ttdevs.flyer.utils.Constant.INDEX_LOG_LEVEL;
 
 /**
  * @author ttdevs
@@ -114,7 +115,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> i
 
     }
 
-    class LogViewHolder extends RecyclerView.ViewHolder implements ActionMode.Callback{
+    class LogViewHolder extends RecyclerView.ViewHolder implements ActionMode.Callback {
         public TextView tvLog;
 
         public LogViewHolder(View view) {

@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:padding="@dimen/global_margin_small">
 
-        <android.support.v7.widget.AppCompatImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/view_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/view_keyword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,8 +43,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/global_margin_normal"
                 android:layout_toLeftOf="@+id/switch_input"
-                android:focusableInTouchMode="true"
                 android:cursorVisible="false"
+                android:focusableInTouchMode="true"
                 android:imeOptions="actionSearch"
                 android:maxLines="2"
                 android:textColor="@color/header_keyword"
@@ -62,7 +62,7 @@
 
         <include layout="@layout/view_divider_vertical_white" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/view_clean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
 
         <include layout="@layout/view_divider_vertical_white" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/view_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,13 +97,13 @@
             android:layout_height="match_parent"
             android:padding="@dimen/global_margin_normal">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_log"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </HorizontalScrollView>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/view_change_height"
             android:layout_width="42dp"
             android:layout_height="14dp"

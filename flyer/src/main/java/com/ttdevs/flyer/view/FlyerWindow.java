@@ -1,14 +1,16 @@
 package com.ttdevs.flyer.view;
 
+import static android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+import static android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
+import static com.ttdevs.flyer.utils.Constant.MAX_LOG_SIZE;
+
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -26,6 +28,10 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.ttdevs.flyer.R;
 import com.ttdevs.flyer.adapter.LogAdapter;
 import com.ttdevs.flyer.utils.ActivityStack;
@@ -36,11 +42,6 @@ import com.ttdevs.flyer.utils.OnLoadMoreListener;
 import com.ttdevs.flyer.utils.OnTouchYListener;
 
 import java.util.ArrayList;
-
-import static android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-import static android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
-import static com.ttdevs.flyer.utils.Constant.MAX_LOG_SIZE;
-import static com.ttdevs.flyer.utils.Constant.DELETE_LOG_SIZE;
 
 /**
  * @author ttdevs
@@ -79,8 +80,8 @@ public class FlyerWindow extends LinearLayout {
     private View viewChangeHeight;
 
     private ArrayList<String> mDataList = new ArrayList<>();
-    private ArrayList<String> mDataSearch = new ArrayList<>();
     private LogAdapter mAdapter;
+    private String mSearchKey = "";
 
     private LogcatUtil mLogcat;
 
@@ -216,18 +217,9 @@ public class FlyerWindow extends LinearLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
-                String keyword = s.toString();
-                if (TextUtils.isEmpty(keyword)) {
-                    mAdapter.setData(mDataList);
-                } else {
-                    mDataSearch.clear();
-                    for (String item : mDataList) {
-                        if (item.toLowerCase().contains(keyword.toLowerCase())) {
-                            mDataSearch.add(item);
-                        }
-                    }
-                    mAdapter.setData(mDataSearch);
-                }
+                mSearchKey = s.toString();
+                mDataList.clear();
+                mAdapter.notifyDataSetChanged();
             }
         });
     }
@@ -271,7 +263,6 @@ public class FlyerWindow extends LinearLayout {
     }
 
     private void clearLog() {
-        mDataSearch.clear();
         mDataList.clear();
         mAdapter.notifyDataSetChanged();
     }
@@ -298,7 +289,11 @@ public class FlyerWindow extends LinearLayout {
             showLogcat(Constant.VERBOSE);
             return;
         }
-        mDataList.add(logMsg);
+        if (TextUtils.isEmpty(mSearchKey)) {
+            mDataList.add(logMsg);
+        } else if (logMsg.contains(mSearchKey)) {
+            mDataList.add(logMsg);
+        }
 
         // 当Log数量大于指定数量，清除之前的Log
         if (mDataList.size() > MAX_LOG_SIZE) {

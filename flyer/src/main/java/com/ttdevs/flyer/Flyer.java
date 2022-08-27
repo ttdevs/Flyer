@@ -1,8 +1,6 @@
 package com.ttdevs.flyer;
 
-import com.ttdevs.flyer.utils.ActivityStack;
 import com.ttdevs.flyer.utils.ApplicationUtil;
-import com.ttdevs.flyer.utils.SystemUtils;
 import com.ttdevs.flyer.view.FlyerWindow;
 
 /**
@@ -17,11 +15,11 @@ public class Flyer {
     }
 
     public synchronized static void show() {
-        if (!SystemUtils.requestPermission()) {
-            return;
-        }
+//        if (!SystemUtils.requestPermission()) {
+//            return;
+//        }
 
-        ActivityStack.register(ApplicationUtil.getApplication());
+//        ActivityStack.register(ApplicationUtil.getApplication());
 
         if (null == mFloatWindow) {
             int marginTop = ApplicationUtil.getDimensionPixelSize(R.dimen.window_margin_top);

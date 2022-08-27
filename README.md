@@ -7,16 +7,17 @@
 
 ## 使用
 
-- 引用：[![GitHub release](https://img.shields.io/github/release/ttdevs/FLyer.svg?style=flat-square)](https://github.com/ttdevs/Flyer/releases)
+-
+引用：[![GitHub release](https://img.shields.io/github/release/ttdevs/FLyer.svg?style=flat-square)](https://github.com/ttdevs/Flyer/releases)
 
-    `implementation "com.ttdevs:flyer:+"` 
-    
-    > 当 support 版本不兼容时: `implementation "com.ttdevs:flyer:+@aar"`
+`implementation "com.ttdevs:flyer:+"`
+
+> 当 support 版本不兼容时: `implementation "com.ttdevs:flyer:+@aar"`
 
 - 混淆：
 
-    `-keep class android.app.ActivityThread{ public *;}`
-    
+  `-keep class android.app.ActivityThread{ public *;}`
+
 - 使用：
 
     - 打开：`Flyer.show();`
@@ -42,7 +43,7 @@
     - 展示当前Activity/Fragment(暂支持v4)
     - 调整窗口高度
     - 通过关键字过滤日志
-    
+
 - TODO
     - 保存日志
     - 拷贝日志
@@ -55,11 +56,11 @@
 
 ## Other
 
- - App中图片来自 [Material Design Icons](https://materialdesignicons.com/)，在此表示感谢
+- App中图片来自 [Material Design Icons](https://materialdesignicons.com/)，在此表示感谢
     - hdpi：
     - xhdpi：大小72，内容64
     - xxhdpi：
-    
+
 ## 感谢
 
 感谢[磊神](https://github.com/lchen1991)提供的支持，帮助解决搜索和拷贝的问题

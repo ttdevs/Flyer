@@ -1,5 +1,7 @@
-apply plugin: "com.android.library"
-apply plugin: "com.novoda.bintray-release"
+plugins {
+    id 'com.android.library'
+//    id 'com.novoda.bintray-release'
+}
 
 android {
     compileSdkVersion versions.compileSdk
@@ -10,8 +12,7 @@ android {
         versionCode versions.versionCode
         versionName versions.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -25,19 +26,20 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    testImplementation "junit:junit:4.12"
-    androidTestImplementation "com.android.support.test:runner:1.0.2"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation "com.android.support:appcompat-v7:${versions.supportLibrary}"
-    implementation "com.android.support:recyclerview-v7:${versions.supportLibrary}"
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }
 
-publish {
-    userOrg = "wwuu2008"
-    groupId = "com.ttdevs"
-    artifactId = "flyer"
-    publishVersion = versions.versionName
-    desc = "A tool for displaying logcat information on the screen."
-    website = "https://github.com/ttdevs/flyer"
-}
+//publish {
+//    userOrg = "wwuu2008"
+//    groupId = "com.ttdevs"
+//    artifactId = "flyer"
+//    publishVersion = versions.versionName
+//    desc = "A tool for displaying logcat information on the screen."
+//    website = "https://github.com/ttdevs/flyer"
+//}

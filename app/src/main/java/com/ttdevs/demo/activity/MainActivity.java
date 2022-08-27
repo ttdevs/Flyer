@@ -1,11 +1,12 @@
 package com.ttdevs.demo.activity;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ttdevs.demo.R;
 import com.ttdevs.flyer.Flyer;
